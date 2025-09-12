@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cowqb1n50w86d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4pkdb"]
+bg_color = Color(0.274225, 0.27428, 0.350168, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.701961)
+
+[resource]
+RichTextLabel/font_sizes/normal_font_size = 32
+RichTextLabel/styles/normal = SubResource("StyleBoxFlat_4pkdb")
