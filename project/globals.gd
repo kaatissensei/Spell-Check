@@ -1,6 +1,7 @@
 extends Node
 
 var csvFile
+var default_lists
 var csv_array = []
 var unit_array : Array[Array]
 var list_array : Array[Vocab]

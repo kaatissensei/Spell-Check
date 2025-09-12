@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b31gwo4hvaj57"]
+[gd_scene load_steps=16 format=3 uid="uid://b31gwo4hvaj57"]
 
 [ext_resource type="Script" uid="uid://gi5ofb00rg56" path="res://spell_check.gd" id="1_coeig"]
 [ext_resource type="Theme" uid="uid://hwydebsyhm38" path="res://main_theme.tres" id="2_nwt03"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://dra2mg0357pmr" path="res://csv_handler.gd" id="5_ma4da"]
 [ext_resource type="Theme" uid="uid://cowqb1n50w86d" path="res://results_theme.tres" id="7_avy18"]
 [ext_resource type="FontFile" uid="uid://22xghwljyrgc" path="res://assets/Michroma-Regular.ttf" id="8_ma4da"]
+[ext_resource type="Script" uid="uid://bwq6akl3cxggl" path="res://csv/lists.gd" id="10_3040f"]
 
 [sub_resource type="Gradient" id="Gradient_n6hn0"]
 colors = PackedColorArray(0.277514, 0.277503, 0.325496, 1, 0.113665, 0.113665, 0.113665, 1)
@@ -575,6 +576,10 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("5_ma4da")
+
+[node name="CSVFile" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("10_3040f")
 
 [connection signal="pressed" from="QuizScene/HBoxContainer/VBoxContainer/Margin/HBoxContainer/Pass" to="QuizScene" method="_skip_question"]
 [connection signal="pressed" from="QuizScene/HBoxContainer/VBoxContainer/Margin/HBoxContainer/Enter" to="QuizScene" method="_check_answer"]

@@ -12,7 +12,7 @@ func _init(vocab_array: Array[String] = ["Eng", "日本語", "単語", "3", "0",
 	populate_vocab(vocab_array)
 
 func populate_vocab(vocab_array) :
-	english = vocab_array[0].replace("[", "")
+	english = vocab_array[0].replace("[", "").strip_edges()
 	japanese = vocab_array[1]
 	part_of_speech = vocab_array[2]
 	unit_num = vocab_array[4].to_int()

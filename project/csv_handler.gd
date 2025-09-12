@@ -70,11 +70,13 @@ func _on_file_loaded(_file_name: String, _type: String, base64_data: String) -> 
 		print("Can't find file.")
 
 func load_default_csv():
-	var text_file_path = "res://text_folder/some_text_file.txt"
-	var csvFile = FileAccess.open(default_csv_path, FileAccess.READ)
-	Main.csvFile = csvFile
-	var content = csvFile.get_as_text()
-	parse_csv()
+	var content = %CSVFile.get_csv()
+	var file = FileAccess.open("user://vocabulary.csv", FileAccess.WRITE)
+	if FileAccess.file_exists("user://vocabulary.csv"):
+		file.store_string(content)
+		file.close() #Don't forget this!
+		Main.csvFile = FileAccess.open("user://vocabulary.csv", FileAccess.READ)
+		parse_csv()
 	Main.csv_array.clear()
 	while csvFile.get_position() < csvFile.get_length():
 		var csvLine = csvFile.get_csv_line()
@@ -85,7 +87,7 @@ func load_default_csv():
 	Main.convert_to_vocab()
 
 func parse_csv():
-	var csv_line_len = 6 #number of elements per csv line
+	#var csv_line_len = 6 #number of elements per csv line
 	csvFile = Main.csvFile
 	
 	#clear_questions()
