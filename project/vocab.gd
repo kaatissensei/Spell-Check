@@ -6,6 +6,7 @@ class_name Vocab extends Resource
 @export var grade_num : int
 @export var unit_num : int
 @export var list_num : int
+@export var page_num : int
 
 
 func _init(vocab_array: Array[String] = ["Eng", "日本語", "単語", "3", "0", "0"]):
@@ -18,4 +19,5 @@ func populate_vocab(vocab_array) :
 	unit_num = vocab_array[4].to_int()
 	grade_num = vocab_array[3].to_int()
 	list_num = vocab_array[5].to_int()
+	page_num = vocab_array[6].to_int() 
 	

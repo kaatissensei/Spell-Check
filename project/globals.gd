@@ -13,12 +13,23 @@ var current_unit : int
 var current_list_id : int
 
 func _ready() -> void:
-	pass
-	##WIP import from file, not hard coded
+	##TEMPORARY
+	current_grade = 3
+	current_unit = 4
+
+func set_list_ids(grade: int = current_grade, unit: int = current_unit, list_num: int = current_list_id):
+	current_grade = grade
+	current_unit = unit
+	current_list_id = list_num
+	#convert_to_vocab()
 
 func convert_to_vocab():
+	var vocab_array : Array
 	for v in range(csv_array.size()):
-		var vocab_array = csv_array[v] #PackedStringArray
+		if (type_string(typeof(csv_array[v])) == "String"):
+			vocab_array = csv_array[v].split(",")
+		else:
+			vocab_array = csv_array[v] #PackedStringArray
 		var string_array: Array[String]
 		string_array.assign(vocab_array)
 		var new_vocab : Vocab = Vocab.new(string_array)
@@ -31,9 +42,9 @@ func convert_to_vocab():
 			#Assign variables here
 				#questions[i] = arr[0]
 				#answers[i] = int(arr[1])
-	
-func built_in_csv():
-	csv_array = [["cat", "猫", "1", "名"], ["dog", "犬", "1", "名"], ["hot", "熱い", "2", "形"], ["cold", "寒い", "2", "形"], ["run", "走る", "3", "動"], ["sing", "歌う", "3", "動"]]
-	convert_to_vocab()
+
+func set_list_array(new_array: Array):
+	list_array.clear()
+	list_array.assign(new_array)
 
 #NH2024 3 Stage activities + 1年生 = 10units, 2年生 = 7units, 3年生 = 6units

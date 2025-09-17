@@ -14,9 +14,13 @@ var unanswered_array : Array[int] #change to true if finished
 var guess_array : Array[String] #student's guesses
 
 var result_answer_row = load("res://result_box.tscn")
+var LIST_BTN = preload("res://list_button.tscn"
+)
 
 func _ready() -> void:
-	%CSVHandler.load_default_csv()
+	pass
+	#load_list(3,0)
+	#%CSVHandler.load_default_csv()
 
 func _gui_input(event):
 	if event is InputEventKey and event.pressed and event.scancode == KEY_ENTER:
@@ -24,12 +28,38 @@ func _gui_input(event):
 	if event is InputEventKey and event.pressed and event.scancode == KEY_SPACE:
 		%Pass.emit_signal("pressed")
 
-func _start_quiz():
+func load_list(grade: int = 3, unit: int = 4, list_num: int = 4):
+	Main.set_list_array(%CSVFile.get_list(grade, unit, list_num))
+	Main.set_list_ids(grade, unit, list_num)
+	
+func _start_quiz(grade: int = Main.current_grade, 
+				unit: int = Main.current_unit, list_num: int = Main.current_list_id):
+	reset_quiz()
+	load_list(grade, unit, list_num)
 	load_array()
 	load_word()
 	%SpellingInput.grab_focus()
 
+func _redo_quiz():
+	reset_quiz()
+	_start_quiz()
+	%ResultsPopup.visible = false
+
+func reset_quiz():
+	current_number = 1
+	num_mistakes = 0
+	passed_array.clear()
+	correct_array.clear()
+	unanswered_array.clear()
+	guess_array.clear()
+	shuffled_list.clear()
+	Main.game_paused = false
+	for child in %ResultAnswers.get_children():
+		#node.remove_child(n)
+		child.queue_free()
+
 func load_array():
+	current_list.clear()
 	current_list.assign(Main.list_array)
 	list_size = current_list.size()
 	for i in range(list_size):
@@ -44,10 +74,13 @@ func shuffle_array():
 	shuffled_list.shuffle()
 	
 func load_word():
-	current_word = shuffled_list[current_number - 1]
-	%WordNumber.text = "%d/%d" % [current_number, shuffled_list.size()]
-	#print("Please spell %s" % current_word.japanese)
-	%WordToSpell.text = current_word.japanese
+	if shuffled_list.size() > 0:
+		current_word = shuffled_list[current_number - 1]
+		%WordNumber.text = "%d/%d" % [current_number, shuffled_list.size()]
+		#print("Please spell %s" % current_word.japanese)
+		%WordToSpell.text = current_word.japanese
+	else:
+		print("List empty")
 
 func _skip_question():
 	passed_array.push_back(current_number)
@@ -131,3 +164,9 @@ func show_score():
 			answer_text = guess_array[i]
 		#row._answer(answer_text)
 		new_row._load(row_num, japanese_text, answer_text)
+
+
+func _back_to_lists() -> void:
+	%ResultsPopup.visible = false
+	%MainMenu.visible = true
+	reset_quiz()
