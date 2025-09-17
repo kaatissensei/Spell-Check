@@ -16,7 +16,7 @@ func _start() -> void:
 	%MainMenu.visible = false
 
 func get_list_options(grade: int = 3, unit: int = 0):
-	var unit_list : Array
+	#var unit_list : Array
 	var num_lists = 10
 	
 	for i in range (num_lists):
