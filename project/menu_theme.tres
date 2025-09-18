@@ -1,7 +1,22 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cqyf7s5xv1te"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cqyf7s5xv1te"]
 
 [ext_resource type="StyleBox" uid="uid://qxyhs5kiw3t2" path="res://enter_button.tres" id="1_2krdf"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2krdf"]
+bg_color = Color(0, 0.357008, 0.732061, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0.261431, 0.549481, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
 [resource]
 Button/font_sizes/font_size = 80
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_2krdf")
 Button/styles/normal = ExtResource("1_2krdf")
+Button/styles/pressed = SubResource("StyleBoxFlat_2krdf")

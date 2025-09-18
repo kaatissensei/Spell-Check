@@ -15,9 +15,10 @@ func _input(event):
 func _start() -> void:
 	%MainMenu.visible = false
 
-func get_list_options(grade: int = 3, unit: int = 0):
+func get_list_options(grade: int = 3, unit: int = 4):
 	#var unit_list : Array
-	var num_lists = 10
+	var num_lists = 5
+	unit_lists.clear()
 	
 	for i in range (num_lists):
 		var new_list = %CSVFile.get_list(grade, unit, i)
@@ -34,7 +35,7 @@ func add_lists_to_menu():
 		new_btn.name = "p%dVocab" % list[0].page_num
 		new_btn.connect("pressed", _select_list.bind(list[0].list_num))
 
-func array_to_str(array: Array, limit: int = 10) -> String:
+func array_to_str(array: Array, limit: int = 5) -> String:
 	var arr_str : String = "NEW WORDS p" + str(array[0].page_num)
 	if array.size() < limit:
 		for v in array:
@@ -50,3 +51,18 @@ func _select_list(list_num: int):
 	Main.current_list_id = list_num
 	%MainMenu.visible = false
 	%QuizScene._start_quiz(Main.current_grade, Main.current_unit, list_num)
+	
+	#Switch Main Menu back to unit select
+	%ListSelect.visible = false
+	%UnitSelect.visible = true
+	%ListSelectMenuText.text = "Which unit?"
+
+
+func _set_unit(new_unit_num: int) -> void:
+	Main.current_unit = new_unit_num
+	for vlist in %ListSelect.get_children():
+		vlist.queue_free()
+	get_list_options(Main.current_grade, Main.current_unit)
+	%UnitSelect.visible = false
+	%ListSelect.visible = true
+	%ListSelectMenuText.text = "Which list?"

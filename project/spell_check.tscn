@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b31gwo4hvaj57"]
+[gd_scene load_steps=19 format=3 uid="uid://b31gwo4hvaj57"]
 
 [ext_resource type="Script" uid="uid://gi5ofb00rg56" path="res://spell_check.gd" id="1_coeig"]
 [ext_resource type="Theme" uid="uid://hwydebsyhm38" path="res://main_theme.tres" id="2_nwt03"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://dra2mg0357pmr" path="res://csv_handler.gd" id="5_ma4da"]
 [ext_resource type="Theme" uid="uid://cowqb1n50w86d" path="res://results_theme.tres" id="7_avy18"]
 [ext_resource type="FontFile" uid="uid://22xghwljyrgc" path="res://assets/Michroma-Regular.ttf" id="8_ma4da"]
+[ext_resource type="Texture2D" uid="uid://b0bpr3gx7ndrn" path="res://images/Home Icon.svg" id="9_ptblg"]
 [ext_resource type="Script" uid="uid://bwq6akl3cxggl" path="res://csv/lists.gd" id="10_3040f"]
 
 [sub_resource type="Gradient" id="Gradient_n6hn0"]
@@ -387,6 +388,7 @@ offset_left = 1445.0
 offset_top = 2.0
 offset_right = 1918.0
 offset_bottom = 132.0
+mouse_default_cursor_shape = 2
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_ptblg")
 theme_override_styles/hover = ExtResource("4_avy18")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ptblg")
@@ -394,16 +396,27 @@ theme_override_styles/normal = ExtResource("4_avy18")
 text = "Try again"
 
 [node name="BackToLists" type="Button" parent="QuizScene/ResultsPopup"]
+visible = false
 layout_mode = 0
 offset_left = 3.0
 offset_top = 2.0
 offset_right = 484.0
 offset_bottom = 132.0
+mouse_default_cursor_shape = 2
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_3040f")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ip23a")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_3040f")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ip23a")
 text = "Back to lists"
+
+[node name="HomeBtn" type="Button" parent="QuizScene"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 141.0
+offset_bottom = 141.0
+theme = ExtResource("2_nwt03")
+icon = ExtResource("9_ptblg")
+icon_alignment = 1
 
 [node name="MainMenu" type="Control" parent="."]
 unique_name_in_owner = true
@@ -498,7 +511,7 @@ offset_bottom = 232.0
 grow_horizontal = 2
 theme = ExtResource("2_nwt03")
 theme_override_font_sizes/normal_font_size = 150
-text = "Which list?"
+text = "Which unit?"
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MainMenu/ListSelectMenu"]
@@ -543,7 +556,6 @@ text = "3rd"
 
 [node name="UnitSelect" type="GridContainer" parent="MainMenu/ListSelectMenu/MarginContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 theme_override_constants/h_separation = 40
 theme_override_constants/v_separation = 20
@@ -554,6 +566,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_nwt03")
 theme_override_font_sizes/font_size = 150
+disabled = true
 text = "1"
 
 [node name="Unit2" type="Button" parent="MainMenu/ListSelectMenu/MarginContainer/UnitSelect"]
@@ -561,6 +574,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_nwt03")
 theme_override_font_sizes/font_size = 150
+disabled = true
 text = "2"
 
 [node name="Unit3" type="Button" parent="MainMenu/ListSelectMenu/MarginContainer/UnitSelect"]
@@ -582,6 +596,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_nwt03")
 theme_override_font_sizes/font_size = 150
+disabled = true
 text = "5"
 
 [node name="Unit6" type="Button" parent="MainMenu/ListSelectMenu/MarginContainer/UnitSelect"]
@@ -589,9 +604,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_nwt03")
 theme_override_font_sizes/font_size = 150
+disabled = true
 text = "6"
 
 [node name="Unit7" type="Button" parent="MainMenu/ListSelectMenu/MarginContainer/UnitSelect"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_nwt03")
@@ -599,6 +616,7 @@ theme_override_font_sizes/font_size = 150
 text = "7"
 
 [node name="Unit8" type="Button" parent="MainMenu/ListSelectMenu/MarginContainer/UnitSelect"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_nwt03")
@@ -616,14 +634,19 @@ text = "9"
 
 [node name="ListSelect" type="GridContainer" parent="MainMenu/ListSelectMenu/MarginContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 columns = 4
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu/ListSelectMenu/MarginContainer/ListSelect"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="HomeBtn" type="Button" parent="MainMenu/ListSelectMenu"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 141.0
+offset_bottom = 141.0
+theme = ExtResource("2_nwt03")
+icon = ExtResource("9_ptblg")
+icon_alignment = 1
 
 [node name="Button" type="Button" parent="MainMenu"]
 visible = false
@@ -648,5 +671,9 @@ script = ExtResource("10_3040f")
 [connection signal="pressed" from="QuizScene/HBoxContainer/VBoxContainer/Margin/HBoxContainer/Enter" to="QuizScene" method="_check_answer"]
 [connection signal="pressed" from="QuizScene/ResultsPopup/TryAgain" to="QuizScene" method="_redo_quiz"]
 [connection signal="pressed" from="QuizScene/ResultsPopup/BackToLists" to="QuizScene" method="_back_to_lists"]
+[connection signal="pressed" from="QuizScene/HomeBtn" to="QuizScene" method="_back_to_lists"]
 [connection signal="pressed" from="MainMenu/StartMenu/VBoxContainer/Start" to="." method="_start"]
+[connection signal="pressed" from="MainMenu/ListSelectMenu/MarginContainer/UnitSelect/Unit3" to="." method="_set_unit" binds= [3]]
+[connection signal="pressed" from="MainMenu/ListSelectMenu/MarginContainer/UnitSelect/Unit4" to="." method="_set_unit" binds= [4]]
+[connection signal="pressed" from="MainMenu/ListSelectMenu/HomeBtn" to="QuizScene" method="_go_home"]
 [connection signal="pressed" from="MainMenu/Button" to="QuizScene" method="_start_quiz"]

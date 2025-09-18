@@ -168,5 +168,12 @@ func show_score():
 
 func _back_to_lists() -> void:
 	%ResultsPopup.visible = false
-	%MainMenu.visible = true
+	_go_home()
 	reset_quiz()
+
+func _go_home():
+	%MainMenu.visible = true
+	#Switch Main Menu back to unit select
+	%ListSelect.visible = false
+	%UnitSelect.visible = true
+	%ListSelectMenuText.text = "Which unit?"
