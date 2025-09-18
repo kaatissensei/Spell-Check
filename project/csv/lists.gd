@@ -3,7 +3,43 @@ extends Node
 #WebGL is annoying, and I'm being lazy, so I'll just do it this way for now
 const g1 = []
 const g2 = []
-const g3 = ["", "", "", "",
+const g3 = ["", "", "", 
+"danger,危険（性）,,3,3,1,32
+extinction,絶滅,,3,3,1,32
+challenge,難問,,3,3,1,32
+human,人間の、人間的な,,3,3,1,32
+endangered,絶滅の危機にさらされている,,3,3,1,32
+survive,生き残る,,3,3,1,32
+trouble,困難,,3,3,1,32
+be in danger of,…の危険がある,,3,3,1,32
+cheetah,チーター,,3,3,2,33
+sea otter,ラッコ,,3,3,2,33
+article,記事,,3,3,2,33
+hear of,…について聞く,,3,3,2,33
+population,（動物の）個体数、人口,,3,3,3,35
+rapidly,速く、急速に,,3,3,3,35
+beginning,最初の部分,,3,3,3,35
+century,世紀,,3,3,3,35
+shock,…に衝撃［ショック］を与える,,3,3,3,35
+safely,安全に,,3,3,3,35
+overhunting,乱獲,,3,3,3,35
+oil,油、石油,,3,3,3,35
+spill,（液体・粉などの）こぼれ、流出,,3,3,3,35
+hunting,狩り,,3,3,3,35
+killer whale,シャチ,,3,3,3,35
+as a result,（…の）結果として,,3,3,3,35
+native,（その土地に）固有の,,3,3,4,37
+logging,伐採,,3,3,4,37
+traffic accident,交通事故,,3,3,4,37
+research,研究、調査,,3,3,4,37
+categorize,…を分類する,,3,3,4,37
+critically,危機的な、危険な状態で,,3,3,4,37
+citizen,市民,,3,3,4,37
+ecosystem,生態系,,3,3,4,37
+human beings,人間（全体）,,3,3,4,37
+relate,…を（～に）関係させる,,3,3,4,37
+action,アクション、行動,,3,3,4,37",
+
 "rode,rideの過去形,,3,4,4,55
 biycle,自転車,,3,4,4,55
 toward,…に向かって,,3,4,4,55
@@ -63,7 +99,6 @@ func get_list(grade : int = 3, unit: int = 4, list_num: int = 4) -> Array[Vocab]
 		_:
 			pass 
 	unit_text = list_text[unit].split("\n")
-	
 	#take each array in unit_text and make into a Vocab
 	for vocabulary in unit_text:
 		var vocab_arr = vocabulary.split(",")
