@@ -14,6 +14,8 @@ func _ready() -> void:
 	file_access_web.loaded.connect(_on_file_loaded)
 	#file_access_web.progress.connect(_on_progress)
 	file_access_web.error.connect(_on_error)
+	
+	print_csv()
 
 
 func load_question_menu():
@@ -105,3 +107,16 @@ func parse_csv():
 		##Assign variables here
 		###questions[i] = arr[0]
 		###answers[i] = int(arr[1])
+
+func print_csv():
+	var text_file_path = "res://csv/3年生Vocab.txt"
+	var _text_content = get_text_file_content(text_file_path)
+
+func get_text_file_content(filePath):
+	var file = FileAccess.open(filePath, FileAccess.READ)
+	#var content = file.get_as_text()
+	var content
+	while file.get_position() < file.get_length():
+		content = file.get_csv_line()
+		##%SQLController.insert_data(content)
+	return content

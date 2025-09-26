@@ -1,5 +1,6 @@
 extends Node
 
+var use_db : bool = true
 var csvFile
 var default_lists
 var csv_array = []
@@ -9,18 +10,23 @@ var list_array : Array[Vocab]
 var game_paused : bool = false
 
 var current_grade : int
-var current_unit : int
-var current_list_id : int
+var current_unit : String
+var current_page : int
+var wait_time : float
+
+enum Game_Mode {study = 0, timed = 1, test = 2}
+@export var game_mode = Game_Mode.study
 
 func _ready() -> void:
-	##TEMPORARY
-	current_grade = 3
-	current_unit = 4
+	wait_time = 180
 
-func set_list_ids(grade: int = current_grade, unit: int = current_unit, list_num: int = current_list_id):
+func set_game_mode(new_game_mode : Game_Mode):
+	game_mode = new_game_mode
+
+func set_list_ids(grade: int = current_grade, unit: String = current_unit, page_num: int = current_page):
 	current_grade = grade
 	current_unit = unit
-	current_list_id = list_num
+	current_page = page_num
 	#convert_to_vocab()
 
 func convert_to_vocab():
@@ -47,4 +53,24 @@ func set_list_array(new_array: Array):
 	list_array.clear()
 	list_array.assign(new_array)
 
+func array_to_str(array: Array, limit: int = 100, include_header : bool = false) -> String:
+	var pg : int
+	var arr_str : String
+
+	pg = array[0].page_num
+	if include_header:
+		arr_str = "NEW WORDS p" + str(pg) + "\n"
+	
+	if array.size() < limit:
+		for v in array:
+			arr_str = arr_str + v.english + "\n"
+	else:
+		for i in range(limit):
+			arr_str = arr_str + array[i].english + "\n"
+		arr_str = arr_str + "\n..."
+	arr_str.strip_edges()
+	return arr_str
+
+func set_wait_time(new_wait_time : float):
+	wait_time = new_wait_time
 #NH2024 3 Stage activities + 1年生 = 10units, 2年生 = 7units, 3年生 = 6units

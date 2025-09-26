@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dm3ul3p5ohrxu"]
+[gd_scene load_steps=2 format=3 uid="uid://dm3ul3p5ohrxu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gl8q8"]
 
 [node name="ListButton" type="Button"]
 anchors_preset = 15
@@ -10,3 +12,4 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gl8q8")

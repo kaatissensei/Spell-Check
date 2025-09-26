@@ -40,8 +40,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_yfbq4")
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_y = 1
 theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
 bbcode_enabled = true
 text = "graduation ceremony
 "
