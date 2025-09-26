@@ -1,7 +1,8 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cqyf7s5xv1te"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cqyf7s5xv1te"]
 
 [ext_resource type="StyleBox" uid="uid://qxyhs5kiw3t2" path="res://enter_button.tres" id="1_2krdf"]
 [ext_resource type="Texture2D" uid="uid://c3ujopexssph2" path="res://images/Grabber.png" id="2_bbxmk"]
+[ext_resource type="FontFile" uid="uid://cb3y2lj6o0j73" path="res://assets/NotoSansJP-Medium.ttf" id="3_gmdkk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2krdf"]
 
@@ -47,3 +48,4 @@ HSlider/icons/grabber_highlight = ExtResource("2_bbxmk")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_gmdkk")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_gmdkk")
 HSlider/styles/slider = SubResource("StyleBoxFlat_bbxmk")
+RichTextLabel/fonts/normal_font = ExtResource("3_gmdkk")
