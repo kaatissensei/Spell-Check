@@ -1,10 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0ary7344f5jf"]
+[gd_scene load_steps=4 format=3 uid="uid://b0ary7344f5jf"]
 
+[ext_resource type="Theme" uid="uid://cqyf7s5xv1te" path="res://menu_theme.tres" id="1_mui2x"]
 [ext_resource type="Script" uid="uid://c13enj0b0xkp7" path="res://result_vocab_check.gd" id="1_skl7s"]
 [ext_resource type="Theme" uid="uid://cowqb1n50w86d" path="res://results_theme.tres" id="1_yfbq4"]
 
 [node name="Control" type="HBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 120)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -12,6 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("1_mui2x")
 theme_override_constants/separation = 0
 script = ExtResource("1_skl7s")
 

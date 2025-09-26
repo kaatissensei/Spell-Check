@@ -4,9 +4,9 @@
 [ext_resource type="Theme" uid="uid://hwydebsyhm38" path="res://main_theme.tres" id="2_nwt03"]
 [ext_resource type="Script" uid="uid://b50m2r3gr61n3" path="res://quiz_scene.gd" id="2_qkgq2"]
 [ext_resource type="Theme" uid="uid://iptgc6lni1ic" path="res://question_numbers.tres" id="3_avy18"]
-[ext_resource type="Theme" uid="uid://cqyf7s5xv1te" path="res://menu_theme.tres" id="3_qkgq2"]
 [ext_resource type="StyleBox" uid="uid://qxyhs5kiw3t2" path="res://enter_button.tres" id="4_avy18"]
 [ext_resource type="Script" uid="uid://dra2mg0357pmr" path="res://csv_handler.gd" id="5_ma4da"]
+[ext_resource type="Theme" uid="uid://dmv7ndvgtkqfc" path="res://scroll_theme.tres" id="6_uolxd"]
 [ext_resource type="Theme" uid="uid://cowqb1n50w86d" path="res://results_theme.tres" id="7_avy18"]
 [ext_resource type="Script" uid="uid://d4hsvp4vbpl5f" path="res://timer_display.gd" id="9_g8vj4"]
 [ext_resource type="Texture2D" uid="uid://b0bpr3gx7ndrn" path="res://images/Home Icon.svg" id="9_ptblg"]
@@ -310,7 +310,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_default_cursor_shape = 2
-theme = ExtResource("3_qkgq2")
+theme = ExtResource("6_uolxd")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ip23a")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_3040f")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ip23a")
@@ -344,7 +344,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("3_qkgq2")
+theme = ExtResource("6_uolxd")
 texture = SubResource("GradientTexture2D_3040f")
 
 [node name="Results" type="VBoxContainer" parent="QuizScene/ResultsPopup"]
@@ -517,7 +517,7 @@ theme_override_constants/separation = 20
 [node name="Start" type="Button" parent="MainMenu/StartMenu/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("3_qkgq2")
+theme = ExtResource("6_uolxd")
 text = "Start"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MainMenu/StartMenu"]
@@ -630,7 +630,7 @@ offset_right = 563.0
 offset_bottom = 1057.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
-theme = ExtResource("3_qkgq2")
+theme = ExtResource("6_uolxd")
 theme_override_font_sizes/font_size = 50
 text = "Load List
 "
@@ -885,6 +885,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("6_uolxd")
+horizontal_scroll_mode = 3
 
 [node name="ListPreviewBoxes" type="VBoxContainer" parent="MainMenu/ReadyMenu/ListPreview/ScrollContainer"]
 unique_name_in_owner = true
@@ -901,7 +903,7 @@ offset_left = 170.0
 offset_top = 64.0
 offset_right = 907.0
 offset_bottom = 139.0
-theme = ExtResource("3_qkgq2")
+theme = ExtResource("6_uolxd")
 theme_override_font_sizes/normal_font_size = 45
 text = "NEW WORDS U-1 p45"
 horizontal_alignment = 1
@@ -921,7 +923,7 @@ offset_right = -152.0
 offset_bottom = -207.0
 grow_horizontal = 0
 grow_vertical = 2
-theme = ExtResource("3_qkgq2")
+theme = ExtResource("6_uolxd")
 min_value = 1.0
 max_value = 5.0
 value = 3.0
@@ -935,7 +937,7 @@ offset_left = 7.0
 offset_top = -100.0
 offset_right = 700.0
 offset_bottom = -12.0
-theme = ExtResource("3_qkgq2")
+theme = ExtResource("6_uolxd")
 theme_override_font_sizes/normal_font_size = 60
 text = "Set Timer"
 scroll_active = false
@@ -948,7 +950,7 @@ offset_left = -39.0
 offset_top = 56.0
 offset_right = 91.0
 offset_bottom = 116.0
-theme = ExtResource("3_qkgq2")
+theme = ExtResource("6_uolxd")
 theme_override_font_sizes/normal_font_size = 40
 text = "1 min."
 horizontal_alignment = 1
@@ -959,7 +961,7 @@ offset_left = 123.0
 offset_top = 56.0
 offset_right = 253.0
 offset_bottom = 116.0
-theme = ExtResource("3_qkgq2")
+theme = ExtResource("6_uolxd")
 theme_override_font_sizes/normal_font_size = 40
 text = "2 min."
 scroll_active = false
@@ -971,7 +973,7 @@ offset_left = 286.0
 offset_top = 56.0
 offset_right = 416.0
 offset_bottom = 116.0
-theme = ExtResource("3_qkgq2")
+theme = ExtResource("6_uolxd")
 theme_override_font_sizes/normal_font_size = 40
 text = "3 min."
 horizontal_alignment = 1
@@ -982,7 +984,7 @@ offset_left = 448.0
 offset_top = 56.0
 offset_right = 578.0
 offset_bottom = 116.0
-theme = ExtResource("3_qkgq2")
+theme = ExtResource("6_uolxd")
 theme_override_font_sizes/normal_font_size = 40
 text = "4 min."
 horizontal_alignment = 1
@@ -993,7 +995,7 @@ offset_left = 611.0
 offset_top = 56.0
 offset_right = 741.0
 offset_bottom = 116.0
-theme = ExtResource("3_qkgq2")
+theme = ExtResource("6_uolxd")
 theme_override_font_sizes/normal_font_size = 40
 text = "5 min."
 horizontal_alignment = 1
@@ -1012,7 +1014,7 @@ offset_right = -152.0
 offset_bottom = 121.0
 grow_horizontal = 0
 grow_vertical = 2
-theme = ExtResource("3_qkgq2")
+theme = ExtResource("6_uolxd")
 min_value = 5.0
 max_value = 15.0
 value = 10.0
@@ -1026,7 +1028,7 @@ offset_left = 7.0
 offset_top = -89.0
 offset_right = 693.0
 offset_bottom = -4.0
-theme = ExtResource("3_qkgq2")
+theme = ExtResource("6_uolxd")
 theme_override_font_sizes/normal_font_size = 60
 text = "How many words?"
 horizontal_alignment = 1
@@ -1039,7 +1041,7 @@ offset_left = 213.0
 offset_top = 66.0
 offset_right = 590.0
 offset_bottom = 147.0
-theme = ExtResource("3_qkgq2")
+theme = ExtResource("6_uolxd")
 theme_override_font_sizes/normal_font_size = 50
 text = "10/15"
 horizontal_alignment = 1
@@ -1059,7 +1061,7 @@ offset_bottom = -76.0
 grow_horizontal = 0
 grow_vertical = 0
 mouse_default_cursor_shape = 2
-theme = ExtResource("3_qkgq2")
+theme = ExtResource("6_uolxd")
 text = "Start"
 
 [node name="HomeBtn" type="Button" parent="MainMenu/ReadyMenu"]

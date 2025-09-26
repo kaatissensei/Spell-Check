@@ -41,9 +41,10 @@ func load_list(grade: int = Main.current_grade, unit: String = Main.current_unit
 	
 func _start_quiz(_grade: int = Main.current_grade, 
 				_unit: String = Main.current_unit, _page_num: int = Main.current_page):
-	##reset_quiz()
-	##load_list(grade, unit, page_num)
-	##load_array()
+	##Moved to ready_quiz: ##reset_quiz() load_list(grade, unit, page_num) load_array()
+	if Main.game_mode == 2 || Main.game_mode == 0: #test or study
+		shuffled_list.resize(test_word_num)
+		resize_arrays(test_word_num)
 	%MainMenu.visible = false
 	load_word()
 	%TimerDisplay.visible = false
@@ -272,6 +273,3 @@ func _go_home():
 func _change_test_word_num(new_num : float):
 	test_word_num = int(new_num)
 	%TestWordNumVal.text = "%d/%d words" % [test_word_num, current_list.size()]
-	if Main.game_mode == 2 || Main.game_mode == 0: #test or study
-		shuffled_list.resize(test_word_num)
-		resize_arrays(test_word_num)

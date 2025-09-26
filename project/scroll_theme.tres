@@ -1,8 +1,8 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://cqyf7s5xv1te"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://dmv7ndvgtkqfc"]
 
-[ext_resource type="StyleBox" uid="uid://qxyhs5kiw3t2" path="res://enter_button.tres" id="1_2krdf"]
-[ext_resource type="Texture2D" uid="uid://c3ujopexssph2" path="res://images/Grabber.png" id="2_bbxmk"]
-[ext_resource type="FontFile" uid="uid://cb3y2lj6o0j73" path="res://assets/NotoSansJP-Medium.ttf" id="3_gmdkk"]
+[ext_resource type="StyleBox" uid="uid://qxyhs5kiw3t2" path="res://enter_button.tres" id="1_0y5ov"]
+[ext_resource type="Texture2D" uid="uid://c3ujopexssph2" path="res://images/Grabber.png" id="2_02l6r"]
+[ext_resource type="FontFile" uid="uid://cb3y2lj6o0j73" path="res://assets/NotoSansJP-Medium.ttf" id="3_ivhyh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2krdf"]
 
@@ -41,24 +41,24 @@ bg_color = Color(0.21176471, 0.23921569, 0.2901961, 1)
 border_width_right = 5
 expand_margin_right = 5.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wrbx1"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0y5ov"]
 bg_color = Color(0.21176471, 0.23921569, 0.2901961, 1)
-border_width_right = 10
+border_width_right = 25
 border_color = Color(0.8, 0.8, 0.8, 0)
 
 [resource]
 Button/font_sizes/font_size = 80
 Button/styles/focus = SubResource("StyleBoxEmpty_2krdf")
-Button/styles/hover = ExtResource("1_2krdf")
+Button/styles/hover = ExtResource("1_0y5ov")
 Button/styles/hover_pressed = SubResource("StyleBoxFlat_2krdf")
-Button/styles/normal = ExtResource("1_2krdf")
+Button/styles/normal = ExtResource("1_0y5ov")
 Button/styles/pressed = SubResource("StyleBoxFlat_2krdf")
-HSlider/icons/grabber = ExtResource("2_bbxmk")
-HSlider/icons/grabber_highlight = ExtResource("2_bbxmk")
+HSlider/icons/grabber = ExtResource("2_02l6r")
+HSlider/icons/grabber_highlight = ExtResource("2_02l6r")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_gmdkk")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_gmdkk")
 HSlider/styles/slider = SubResource("StyleBoxFlat_bbxmk")
-RichTextLabel/fonts/normal_font = ExtResource("3_gmdkk")
+RichTextLabel/fonts/normal_font = ExtResource("3_ivhyh")
 ScrollContainer/styles/panel = SubResource("StyleBoxFlat_1n8dl")
-VScrollBar/styles/scroll = SubResource("StyleBoxFlat_wrbx1")
-VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_wrbx1")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_0y5ov")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_0y5ov")
