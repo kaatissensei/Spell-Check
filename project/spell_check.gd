@@ -65,10 +65,11 @@ func _select_list(page_num: int):
 	#%MainMenu.visible = false
 	#%QuizScene._start_quiz(Main.current_grade, Main.current_unit, page_num)
 	%ListSelectMenu.visible = false
+	Main.current_screen = "ReadyMenu"
 	_open_ready_menu()
 	
 	#Switch Main Menu back to unit select
-	show_list_select_menus(%GradeSelect)
+	#show_list_select_menus(%GradeSelect)
 
 func _set_unit(new_unit_num: String) -> void:
 	Main.current_unit = new_unit_num
@@ -81,6 +82,7 @@ func _set_unit(new_unit_num: String) -> void:
 	%UnitSelect.visible = false
 	%ListSelect.visible = true
 	%ListSelectMenuText.text = "Which list?"
+	Main.current_screen = "ListSelect"
 	var unit_pages : Array[int] = $SQLController.get_page_nums(new_unit_num)
 	
 	for page in unit_pages:
@@ -144,6 +146,21 @@ func show_list_select_menus(selected_menu : Control):
 			%ListSelectMenuText.text = "Which list?"
 		"TimeLimitSelect":
 			%ListSelectMenuText.text = "Set timer."
+	Main.current_screen = selected_menu.name
+
+func _go_back(current_screen: String = Main.current_screen):
+	print(current_screen)
+	match current_screen:
+		"GradeSelect":
+			%QuizScene._go_home()
+		"UnitSelect":
+			show_list_select_menus(%GradeSelect)
+		"ListSelect":
+			show_list_select_menus(%UnitSelect)
+		"ReadyMenu":
+			show_list_select_menus(%ListSelect)
+			%ReadyMenu.visible = false
+			%ListSelectMenu.visible = true
 
 func _open_ready_menu():
 	%ReadyMenu.visible = true

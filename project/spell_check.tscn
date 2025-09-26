@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b31gwo4hvaj57"]
+[gd_scene load_steps=26 format=3 uid="uid://b31gwo4hvaj57"]
 
 [ext_resource type="Script" uid="uid://gi5ofb00rg56" path="res://spell_check.gd" id="1_coeig"]
 [ext_resource type="Theme" uid="uid://hwydebsyhm38" path="res://main_theme.tres" id="2_nwt03"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dp2lm8cx44gge" path="res://images/StopwatchIcon_300.svg" id="11_vqdc1"]
 [ext_resource type="Script" uid="uid://1ku5al82vgct" path="res://sql_controller.gd" id="12_3wx56"]
 [ext_resource type="Texture2D" uid="uid://ccv56d1fqjl7e" path="res://images/PaperIcon_300.svg" id="12_uolxd"]
+[ext_resource type="Texture2D" uid="uid://dv12dt8x71hvy" path="res://images/Back icon.svg" id="13_uolxd"]
 
 [sub_resource type="Gradient" id="Gradient_n6hn0"]
 colors = PackedColorArray(0.277514, 0.277503, 0.325496, 1, 0.113665, 0.113665, 0.113665, 1)
@@ -782,7 +783,6 @@ vertical_alignment = 1
 
 [node name="GradeSelect" type="HBoxContainer" parent="MainMenu/ListSelectMenu/ListSelectMargin"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 theme_override_constants/separation = 50
 
@@ -834,6 +834,17 @@ offset_bottom = 141.0
 mouse_default_cursor_shape = 2
 theme = ExtResource("2_nwt03")
 icon = ExtResource("9_ptblg")
+icon_alignment = 1
+
+[node name="BackBtn" type="Button" parent="MainMenu/ListSelectMenu"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 4.0
+offset_right = 279.0
+offset_bottom = 141.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_nwt03")
+icon = ExtResource("13_uolxd")
 icon_alignment = 1
 
 [node name="ReadyMenu" type="Control" parent="MainMenu"]
@@ -906,6 +917,7 @@ offset_bottom = 139.0
 theme = ExtResource("6_uolxd")
 theme_override_font_sizes/normal_font_size = 45
 text = "NEW WORDS U-1 p45"
+scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -1025,12 +1037,13 @@ ticks_on_borders = true
 [node name="TestWordNumLabel" type="RichTextLabel" parent="MainMenu/ReadyMenu/TestWordNumber"]
 layout_mode = 0
 offset_left = 7.0
-offset_top = -89.0
+offset_top = -100.0
 offset_right = 693.0
 offset_bottom = -4.0
 theme = ExtResource("6_uolxd")
 theme_override_font_sizes/normal_font_size = 60
 text = "How many words?"
+scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -1044,6 +1057,7 @@ offset_bottom = 147.0
 theme = ExtResource("6_uolxd")
 theme_override_font_sizes/normal_font_size = 50
 text = "10/15"
+scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -1073,6 +1087,17 @@ offset_bottom = 141.0
 mouse_default_cursor_shape = 2
 theme = ExtResource("2_nwt03")
 icon = ExtResource("9_ptblg")
+icon_alignment = 1
+
+[node name="BackBtn" type="Button" parent="MainMenu/ReadyMenu"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 142.0
+offset_right = 140.0
+offset_bottom = 279.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_nwt03")
+icon = ExtResource("13_uolxd")
 icon_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/ReadyMenu"]
@@ -1149,10 +1174,12 @@ ignore_time_scale = true
 [connection signal="pressed" from="MainMenu/ListSelectMenu/ListSelectMargin/GradeSelect/Grade2" to="." method="_set_grade" binds= [2]]
 [connection signal="pressed" from="MainMenu/ListSelectMenu/ListSelectMargin/GradeSelect/Grade3" to="." method="_set_grade" binds= [3]]
 [connection signal="pressed" from="MainMenu/ListSelectMenu/HomeBtn" to="QuizScene" method="_go_home"]
+[connection signal="pressed" from="MainMenu/ListSelectMenu/BackBtn" to="." method="_go_back"]
 [connection signal="value_changed" from="MainMenu/ReadyMenu/TestTimer" to="." method="_set_wait_time"]
 [connection signal="value_changed" from="MainMenu/ReadyMenu/TestWordNumber" to="QuizScene" method="_change_test_word_num"]
 [connection signal="pressed" from="MainMenu/ReadyMenu/TestStartBtn" to="QuizScene" method="_start_quiz"]
 [connection signal="pressed" from="MainMenu/ReadyMenu/HomeBtn" to="QuizScene" method="_go_home"]
+[connection signal="pressed" from="MainMenu/ReadyMenu/BackBtn" to="." method="_go_back"]
 [connection signal="pressed" from="MainMenu/Button" to="QuizScene" method="_start_quiz"]
 [connection signal="pressed" from="Button" to="SQLController" method="print_csv"]
 [connection signal="timeout" from="Timer" to="QuizScene/TimerDisplay" method="_on_timer_timeout"]

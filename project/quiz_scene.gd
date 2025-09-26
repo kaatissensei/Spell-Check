@@ -62,6 +62,7 @@ func _ready_list():
 	reset_quiz()
 	load_list()
 	load_array()
+	Main.current_screen = "ReadyMenu"
 	#Fill list preview with English list
 	#var str_list = Main.array_to_str(current_list)
 	##%ListPreview.text = str_list

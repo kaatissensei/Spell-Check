@@ -12,6 +12,7 @@ var game_paused : bool = false
 var current_grade : int
 var current_unit : String
 var current_page : int
+var current_screen : String #This should be an enum
 var wait_time : float
 
 enum Game_Mode {study = 0, timed = 1, test = 2}
